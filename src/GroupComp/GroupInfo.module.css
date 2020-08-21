@@ -1,0 +1,105 @@
+.mainLayout{
+    background-color: rgb(34, 36, 41);
+    border-left: 2px solid rgb(51, 53, 57);
+    width: 19vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+}
+
+.groupLayout{
+    display: grid;
+    align-items: center;
+    height: 14vh;
+    padding: 3vh 2vw;
+    border-bottom: 2px solid rgb(51, 53, 57);
+}
+
+.groupLayout span{
+    color: rgb(118, 119, 123);
+    font-size: 0.9rem;
+}
+
+.groupName{
+    padding: 0 1vw;
+    margin: 3vh 0 1vh 0;
+    max-height: 81vh;
+    overflow-y: auto;
+}
+
+.groupName::-webkit-scrollbar{
+    width: 0.4vw;
+    height: 0.4vw;
+    background: transparent;
+}
+
+.groupName::-webkit-scrollbar-thumb{
+    background-color: rgb(76, 79, 84);
+    border-radius: 50px;
+    height: 8vh;
+}
+
+.groupName span{
+    color: rgb(118, 120, 124);
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.participants{
+    display: flex;
+    margin: 1vh 0;
+    font-size: 0.8rem;
+    color: rgb(194, 195, 196);
+    align-items: center;
+}
+
+.participants div{
+    width: fit-content;
+    padding-left: 1vw;
+}
+
+.position{
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600!important;
+    background-color: rgb(38, 52, 75);
+    width: fit-content;
+    padding: 0.3vw 0.4vw;
+    color: rgb(130, 175, 242)!important;
+    border-radius: 4px;
+}
+
+#showGroupInfo{
+    transform: translateX(0%);
+}
+
+@media only screen and (max-width: 850px){
+    .mainLayout{
+        position: absolute;
+        left: 0;
+        width: 220px;
+        z-index: 2;
+        height: 100vh;
+        font-size: 1rem;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .groupLayout{
+        justify-content: center;
+        padding: 3vh 2vw;
+        height: 17vh;
+    }
+
+    .groupLayout span, .participants{
+        font-size: 0.7rem;
+    }
+
+    .groupName{
+        padding-left: 10%;
+    }
+
+    .position{
+        font-size: 0.7rem!important;
+    }
+}

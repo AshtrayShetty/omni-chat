@@ -1,0 +1,258 @@
+.mainLayout{
+    position: absolute;
+    top: 14vh;
+    width: 65vw;
+    background: rgb(34, 36, 41);
+    left: 16vw;
+}
+
+.layout{
+    position: absolute;
+    top: 0;
+    left: 16vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 2vw;
+    border-bottom: 2px solid rgb(51, 53, 57);
+    height: 14vh;
+    width: 65vw;
+    background-color: rgb(34, 36, 41);
+}
+
+.roomName{
+    font-size: 1.6rem;
+}
+
+.chatMeta{
+    padding-left: 0.8vw;
+}
+
+.membersMeta{
+    display: flex;
+    position: relative;
+    top: 0.7vh;
+    align-items: center;
+}
+
+.membersMeta span{
+    color: rgb(118, 119, 123);
+    font-size: 0.9rem;
+}
+
+.membersMeta button{
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    position: relative;
+    left: 1vw;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    padding: 0.5vw;
+    border-radius: 20px;
+}
+
+.membersMeta button:hover{
+    background: rgb(54, 54, 54);
+}
+
+.listFeatures{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+    position: relative;
+    left: 10vw;
+    color: rgb(122, 123, 126);
+    width: 40%;
+    height: 2vw;
+}
+
+.listFeatures li{
+    display: flex;
+    width: 5vw;
+    height: 2vw;
+    list-style: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+.messagesView{
+    max-height: 69vh;
+    height: 69vh;
+    width: 65vw;
+    padding-bottom: 9vh;
+    display: grid;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.messagesView::-webkit-scrollbar{
+    width: 0.4vw;
+    height: 0.4vw;
+    background: transparent;
+}
+
+.messagesView::-webkit-scrollbar-thumb{
+    background-color: rgb(76, 79, 84);
+    border-radius: 50px;
+    height: 8vh;
+}
+
+.messageContainer{
+    border-top: 1px solid rgb(51, 53, 57);
+    border-bottom: 1px solid rgb(51, 53, 57);
+    width: 60vw;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 1.68vh 0.53vw;
+}
+
+.profilePic{
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+}
+
+.messageDetails{
+    position: relative;
+    left: 2vw;
+    font-size: 0.9rem;
+}
+
+.messageMeta{
+    color: rgb(97, 99, 102);
+    position: relative;
+    left: 0.5vw;
+    font-size: 0.8rem;
+}
+
+.message{
+    position: relative;
+    top: 0.5vh;
+    font-size: 0.9rem;
+    color: rgb(134, 136, 141);
+}
+
+.messageInput{
+    max-height: 17vh;
+    height: 17vh;
+    display: grid;
+    justify-content: center;
+    box-shadow: 0 -12px 120px rgb(34, 35, 40);
+}
+
+.textBox{
+    width: 45vw;
+    height: 12vh;
+    resize: none;
+    background-color: rgb(51, 53, 57);
+    color: white;
+    padding: 1.5vh 3vw;
+    outline: none;
+    border: 2px solid rgb(76, 79, 84);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom: none;
+}
+
+.textBox::-webkit-scrollbar{
+    width: 0.4vw;
+    height: 0.4vw;
+    background: transparent;
+}
+
+.textBox::-webkit-scrollbar-thumb{
+    background-color: rgb(76, 79, 84);
+    border-radius: 50px;
+    height: 8vh;
+}
+
+.formatOptions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45vw;
+    color: rgb(106, 107, 111);
+    background-color: rgb(51, 53, 57);
+    height: 4vh;
+    margin-top: -0.9vh;
+    border: 2px solid rgb(76, 79, 84);
+    border-top: none;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    padding: 0 1.2vw;
+}
+
+.formatOptions ul{
+    list-style: none;
+    display: flex;
+}
+
+.formatOptions ul li{
+    min-width: 1.4rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+@media only screen and (max-width: 850px){
+    .mainLayout{
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    .layout{
+        left: 0;
+        width: 100vw;
+        padding: 1.4vh 5vw;
+    }
+
+    .roomName{
+        font-size: 1.4rem;
+    }
+
+    .messagesView{
+        width: 100%;
+    }
+    
+    .membersMeta span, .membersMeta button{
+        font-size: 0.7rem;
+    }
+
+    .listFeatures{
+        width: 80%;
+        left: 0;
+    }
+
+    .listFeatures li{
+        padding: 0 1vw;
+    }
+
+    .messageContainer{
+        width: 90vw;
+        padding: 1.68vh 1.53vw;
+    }
+
+    .messageMeta{
+        font-size: 0.7rem;
+    }
+
+
+    .message, .messageDetails{
+        font-size: 0.9rem;
+    }
+
+    .textBox{
+        width: 92vw;
+        font-size: 0.9rem;
+    }
+
+    .formatOptions{
+        width: 92vw;
+        margin-top: -1vh;
+    }
+}
