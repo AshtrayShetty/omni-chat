@@ -1,14 +1,21 @@
 import React from 'react';
-import ChatRoom from './ChatComp/ChatRoom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
-import Nav from './Nav';
+import Login from './LoginComp/Login';
+import Chat from "./Chat";
+import Register from './LoginComp/Register';
 
 function App() {
   return (
-    <div className="App" style={{display: "grid"}}>
-      <Nav/>
-      <ChatRoom/>
-    </div>
+    <Router>
+      <div className="App" style={{display: "grid"}}>
+        <Switch>
+          <Route path="/" exact component={Login}/>
+          <Route path="/register" exact component={Register}/>
+          <Route path="/chat" exact component={Chat}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

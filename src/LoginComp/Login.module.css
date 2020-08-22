@@ -1,0 +1,82 @@
+#loginMain{
+    background-color: #23272A;
+    max-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formDiv{
+    color: white;
+    width: 40%;
+    height: 60vh;
+    border-radius: 5px;
+    background-color: #2d3034;
+    text-align: center;
+    padding-top: 2vh;
+    box-shadow: 0px 0px 8px rgb(26, 26, 26);
+}
+
+#loginForm{
+    height: 55vh;
+}
+
+span{
+    color: rgb(118, 119, 123);
+    position: relative;
+}
+
+#greeting{
+    top: 1.3vh;
+}
+
+.formDiv form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 1vh;
+}
+
+.formDiv form label{
+    text-transform: uppercase;
+    text-align: start;
+    font-size: 0.8rem;
+    color: rgb(118, 119, 123);
+    font-weight: bold;
+    padding: 4vh 5% 1.3vh 5%; 
+}
+
+.formDiv form input{
+    position: relative;
+    width: 85%;
+    left: 5%;
+    height: 5vh;
+    background-color: #23272A;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-left: 3%;
+    color: white;
+    font-size: 0.9rem;
+}
+
+#loginBtn{
+    top: 5vh;
+    cursor: pointer;
+}
+
+#register{
+    top: 7vh;
+    font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 768px){
+    .formDiv{
+        width: 100%;
+        height: 100vh;
+    }
+
+    #loginForm{
+        height: 100vh;
+    }
+} 
