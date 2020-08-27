@@ -3,6 +3,9 @@ import LoginStyles from './Login.module.css';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+let accessToken="";
+let refreshToken="";
+
 const Login=()=>{
 
     const [state, setState]=useState({
@@ -44,7 +47,20 @@ const Login=()=>{
         {
             headers: {'Content-Type': 'application/json'}
         })
-        .then(data=>console.log(data))
+        .then(data=>{
+            console.log(data);
+
+            accessToken=data.data.data.requestTokenSet.accessToken;
+            refreshToken=data.data.data.requestTokenSet.refreshToken;
+
+            setState({
+                username: state.username,
+                password: state.password
+            });
+            
+            window.location.href="http://localhost:3000/chat";
+
+        })
         .catch(err=>console.log(err));
     };
 
@@ -68,4 +84,4 @@ const Login=()=>{
     );  
 }
 
-export default Login;
+export {Login, accessToken, refreshToken};
