@@ -3,9 +3,6 @@ import LoginStyles from './Login.module.css';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-let accessToken="";
-let refreshToken="";
-
 const Login=()=>{
 
     const [state, setState]=useState({
@@ -50,8 +47,8 @@ const Login=()=>{
         .then(data=>{
             console.log(data);
 
-            accessToken=data.data.data.requestTokenSet.accessToken;
-            refreshToken=data.data.data.requestTokenSet.refreshToken;
+            sessionStorage.setItem('accessToken', data.data.data.requestTokenSet.accessToken);
+            sessionStorage.setItem('refreshToken', data.data.data.requestTokenSet.refreshToken);
 
             setState({
                 username: state.username,
@@ -84,4 +81,4 @@ const Login=()=>{
     );  
 }
 
-export {Login, accessToken, refreshToken};
+export default Login;

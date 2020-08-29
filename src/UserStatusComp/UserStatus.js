@@ -21,7 +21,7 @@ const UserStatus=(props)=>{
             <div className={userStats.user}>
                 <div className={userStats.userMeta}>
                     <span className={userStats.userId}>#420</span>
-                    <span className={userStats.userName}>Kamath</span>
+                    <span className={userStats.userName}>{props.username}</span>
                 </div>
                 <span>#</span>
             </div>

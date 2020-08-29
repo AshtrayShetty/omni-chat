@@ -3,7 +3,7 @@ import NavStyles from './ChatComp/Nav.module.css';
 import UserStatus from './UserStatusComp/UserStatus';
 import GroupInfo from './GroupComp/GroupInfo';
 
-const Nav=()=>{
+const Nav=(props)=>{
 
     const [profileView, setProfileView]=useState(false);
     const [groupView, setGroupView]=useState(false);
@@ -20,7 +20,7 @@ const Nav=()=>{
 
     return(
         <div>
-            <UserStatus profileView={profileView}/>
+            <UserStatus profileView={profileView} username={props.username}/>
 
             <nav className={NavStyles.layout}>
 
