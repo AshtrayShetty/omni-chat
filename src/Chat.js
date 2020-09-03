@@ -35,7 +35,6 @@ const Chat=()=>{
             }
         )
         .then(data=>{
-            console.log(data);
             setAccountDets({
                 username: data.data.data.readAccount.username,
                 emailAddress: data.data.data.readAccount.emailAddress,

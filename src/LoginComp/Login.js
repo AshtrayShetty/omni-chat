@@ -45,7 +45,6 @@ const Login=()=>{
             headers: {'Content-Type': 'application/json'}
         })
         .then(data=>{
-            console.log(data);
 
             sessionStorage.setItem('accessToken', data.data.data.requestTokenSet.accessToken);
             sessionStorage.setItem('refreshToken', data.data.data.requestTokenSet.refreshToken);
@@ -54,9 +53,28 @@ const Login=()=>{
                 username: state.username,
                 password: state.password
             });
+
+            axios.post(
+                'http://localhost/query-or-mutation', 
+                {
+                    'query': `query RequestOnetimeToken($login: Login!){
+                        requestOnetimeToken(login: $login)
+                    }`,
+                    'variables': {
+                        'login': {
+                            'username': state.username,
+                            'password': state.password
+                        }
+                    }
+                }, 
+                {
+                    headers: {'Content-Type': 'application/json'}
+                }
+            )
+            .then(token=>localStorage.setItem('oneTimeToken', token.data.data.requestOnetimeToken))
+            .catch(err=>console.log(err));
             
             window.location.href="http://localhost:3000/chat";
-
         })
         .catch(err=>console.log(err));
     };
