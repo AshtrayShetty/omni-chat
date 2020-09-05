@@ -1,60 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Groups from './Groups';
 import userStats from './UserStats.module.css';
 import axios from 'axios';
 // import { gql } from 'apollo-boost';
 
 const UserStatus=(props)=>{
-
-    window.addEventListener('load', ()=>{
-        let socket=new WebSocket(`ws://localhost:80/messages-subscription?access_token=${localStorage.getItem('oneTimeToken')}`);
-    
-        socket.onopen=()=>{
-            socket.send(JSON.stringify({
-                'query': `subscription SubscribeToMessages{
-                    subscribeToMessages{
-                        ... on CreatedSubscription{placeholder}
-                        ... on NewMessage{
-                            senderId,
-                            text
-                        }
-                    }
-                }`
-            }));
-
-            axios.post(
-                'http://localhost/query-or-mutation',
-                {
-                    'query': `query ReadChats{
-                        __type(name: "MessagesConnection"){
-                            fields{
-                                name
-                                type{
-                                    name
-                                    kind
-                                    ofType{
-                                        name
-                                        kind
-                                    }
-                                }
-                            }
-                        }
-                    }`
-                },
-                {
-                    headers:{
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
-                    }
-                }
-            )
-            .then(data=>console.log(data))
-            .catch(err=>console.log(err));
-        };
-    
-        socket.addEventListener('message', data=>console.log(data));
-        
-    });
 
     return(
         

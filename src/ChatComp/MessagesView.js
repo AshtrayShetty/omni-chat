@@ -2,7 +2,7 @@ import React from 'react';
 import Message from './Message';
 import MessagesContainer from './Nav.module.css';
 
-const MessagesView=()=>{
+const MessagesView=(props)=>{
     return(
         <div className={MessagesContainer.messagesView}>
             <Message 

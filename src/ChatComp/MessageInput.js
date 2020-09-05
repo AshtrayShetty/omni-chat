@@ -2,6 +2,7 @@ import React from 'react';
 import MessageInputStyles from './Nav.module.css';
 
 const MessageInput=()=>{
+
     return(
         <div className={MessageInputStyles.messageInput}>
             <textarea className={MessageInputStyles.textBox}/>
