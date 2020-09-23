@@ -30,6 +30,23 @@ const Register=()=>{
         ).then(data=>{
             window.location.href="localhost:3000/login";
             console.log(data);
+            axios.post(
+                'http://localhost:80/query-or-mutation',
+                {
+                    'query': `mutation VerifyEmailAddress($emailAddress: String!, $verificationCode: Int!){
+                        verifyEmailAddress($emailAddress, $verificationCode)
+                    }`,
+                    "variables": {
+                        "emailAddress": e.target.email.value,
+                        "verificationCode": '123456'
+                    }
+                },
+                {
+                    headers: {"Content-Type": "application/json"}
+                }
+            )
+            .then(details=>console.log(details))
+            .catch(err=>console.log(err));
         })
         .catch(err=>console.log(err));
     }

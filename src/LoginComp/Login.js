@@ -45,7 +45,7 @@ const Login=()=>{
             headers: {'Content-Type': 'application/json'}
         })
         .then(data=>{
-
+            console.log(data);
             sessionStorage.setItem('accessToken', data.data.data.requestTokenSet.accessToken);
             sessionStorage.setItem('refreshToken', data.data.data.requestTokenSet.refreshToken);
 
