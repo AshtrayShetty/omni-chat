@@ -5,42 +5,41 @@ import axios from "axios";
 
 const Register=()=>{
 
-    // const registerUser=(e)=>{
-    //     axios.post('http://localhost/query-or-mutation', {
-    //             'query': `mutation CreateAccount($account: AccountInput!){
-    //                 createAccount(account: $acccount)
-    //             }`,
-    //             'variables': `{
-    //                 "account": {
-    //                     "username": ${e.target.username.value},
-    //                     "emailAddress": ${e.target.email.value},
-    //                     "password": ${e.target.password.value},
-    //                     "firstName": "John",
-    //                     "lastName": "Doe",
-    //                     "bio": ""
-    //                 }
-    //             }`
-    //         },
-    //         {
-    //             headers: {"Content-Type": "application/json"}
-    //         }
-    //     ).then(data=>{
-    //         e.preventDefault();
-    //         console.log(data);
-    //     })
-    //     .catch(err=>{
-    //         e.preventDefault();
-    //         window.location.href="localhost:3000/chat";
-    //         console.log(err);
-    //     });
-    // }
+    const registerUser=(e)=>{
+        e.preventDefault();
+        axios.post(
+            'http://localhost/query-or-mutation', 
+            {
+                'query': `mutation CreateAccount($account: AccountInput!){
+                    createAccount(account: $account)
+                }`,
+                'variables': {
+                    "account": {
+                        "username": e.target.username.value,
+                        "emailAddress": e.target.email.value,
+                        "password": e.target.password.value,
+                        "firstName": e.target.username.value.substring(0, e.target.username.value.length/2),
+                        "lastName": e.target.username.value.substring(e.target.username.value.length/2, e.target.username.value.length),
+                        "bio": ""
+                    }
+                }
+            },
+            {
+                headers: {"Content-Type": "application/json"}
+            }
+        ).then(data=>{
+            window.location.href="localhost:3000/login";
+            console.log(data);
+        })
+        .catch(err=>console.log(err));
+    }
 
     return(
         <div id={RegisterStyles.loginMain}>
             <div className={RegisterStyles.formDiv}>
                 <h2>Create an account</h2>
                 {/* onSubmit={registerUser} */}
-                <form>
+                <form onSubmit={registerUser} method="POST">
                     <label htmlFor="email">Email</label>
                     <input type="text" name="email" required/>
                     <label htmlFor="username">Username</label>
