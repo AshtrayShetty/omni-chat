@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RegisterStyles from './Login.module.css';
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Register=()=>{
 
+    const [email, setEmail]=useState("");
+
     const registerUser=(e)=>{
         e.preventDefault();
+        setEmail(e.target.email.value);
+
         axios.post(
             'http://localhost/query-or-mutation', 
             {
@@ -16,7 +20,7 @@ const Register=()=>{
                 'variables': {
                     "account": {
                         "username": e.target.username.value,
-                        "emailAddress": e.target.email.value,
+                        "emailAddress": email,
                         "password": e.target.password.value,
                         "firstName": e.target.username.value.substring(0, e.target.username.value.length/2),
                         "lastName": e.target.username.value.substring(e.target.username.value.length/2, e.target.username.value.length),
@@ -28,7 +32,7 @@ const Register=()=>{
                 headers: {"Content-Type": "application/json"}
             }
         ).then(data=>{
-            window.location.href="localhost:3000/login";
+            // window.location.href="localhost:3000/login";
             console.log(data);
             axios.post(
                 'http://localhost:80/query-or-mutation',
@@ -37,7 +41,7 @@ const Register=()=>{
                         verifyEmailAddress($emailAddress, $verificationCode)
                     }`,
                     "variables": {
-                        "emailAddress": e.target.email.value,
+                        "emailAddress": email,
                         "verificationCode": '123456'
                     }
                 },
@@ -45,7 +49,10 @@ const Register=()=>{
                     headers: {"Content-Type": "application/json"}
                 }
             )
-            .then(details=>console.log(details))
+            .then(details=>{
+                console.log(details);
+                window.location.href="http://localhost:3000/verify";
+            })
             .catch(err=>console.log(err));
         })
         .catch(err=>console.log(err));
@@ -55,7 +62,6 @@ const Register=()=>{
         <div id={RegisterStyles.loginMain}>
             <div className={RegisterStyles.formDiv}>
                 <h2>Create an account</h2>
-                {/* onSubmit={registerUser} */}
                 <form onSubmit={registerUser} method="POST">
                     <label htmlFor="email">Email</label>
                     <input type="text" name="email" required/>

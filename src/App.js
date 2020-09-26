@@ -4,6 +4,7 @@ import './App.css';
 import Login from './LoginComp/Login';
 import Chat from "./Chat";
 import Register from './LoginComp/Register';
+import Verify from './LoginComp/Verify';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" exact component={Login}/>
           <Route path="/register" exact component={Register}/>
           <Route path="/chat" exact component={Chat}/>
+          <Route path="/verify" exact component={Verify}/>
         </Switch>
       </div>
     </Router>

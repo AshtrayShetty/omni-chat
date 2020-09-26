@@ -73,8 +73,6 @@ const Login=()=>{
             )
             .then(token=>localStorage.setItem('oneTimeToken', token.data.data.requestOnetimeToken))
             .catch(err=>console.log(err));
-            
-            window.location.href="http://localhost:3000/chat";
         })
         .catch(err=>console.log(err));
     };

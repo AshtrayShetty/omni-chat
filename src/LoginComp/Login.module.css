@@ -22,6 +22,23 @@
     height: 55vh;
 }
 
+#verifyDiv{
+    width: 30%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+}
+
+#resend{
+    position: relative;
+    top: 4vh;
+}
+
+#resend a{
+    color: rgb(96, 96, 243);
+}
+
 span{
     color: rgb(118, 119, 123);
     position: relative;
@@ -78,5 +95,9 @@ span{
 
     #loginForm{
         height: 100vh;
+    }
+
+    #verifyDiv{
+        width: 100%;
     }
 } 
